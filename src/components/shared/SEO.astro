@@ -10,14 +10,15 @@ export interface Props {
 const {
     title,
     description,
-    image = "/favicon.png", // Imagen por defecto (usando el favicon/logo si no hay otra)
+    // CAMBIO AQUÍ: Apuntamos a tu nueva imagen social en lugar del favicon
+    image = "/images/default-social.jpg",
     article = false,
 } = Astro.props;
 
 // Construimos la URL completa porque las redes sociales exigen rutas absolutas (https://...)
 const siteUrl = Astro.site ? Astro.site.href : "http://localhost:4321/";
 const canonicalURL = new URL(Astro.url.pathname, siteUrl);
-const socialImageURL = new URL(image, siteUrl);
+const socialImageURL = new URL(image, siteUrl); // Esto crea: https://tusitio.com/images/default-social.png
 const fullTitle = `${title} | ATT & CODE.SG`;
 ---
 
