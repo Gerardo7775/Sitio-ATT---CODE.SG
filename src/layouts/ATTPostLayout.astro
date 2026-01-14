@@ -3,6 +3,7 @@
 import BaseLayout from "./BaseLayout.astro"; // Tu layout base HTML
 import { Image } from "astro:assets";
 import attLogo from "../assets/images/att/logo.png";
+import SEO from "../components/shared/SEO.astro";
 
 // Simulamos datos que vendrían del Markdown (Frontmatter)
 const { frontmatter } = Astro.props;
@@ -16,10 +17,13 @@ const date = "12 OCT 2025";
 
 <html lang="es">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <title>{title} | ATT</title>
+        <SEO
+            title={title}
+            description={frontmatter?.description ||
+                "Artículo académico de ATT."}
+            image={frontmatter?.image}
+            article={true}
+        />
     </head>
     <body class="bg-brand-cream text-att-black font-sans antialiased">
         <nav

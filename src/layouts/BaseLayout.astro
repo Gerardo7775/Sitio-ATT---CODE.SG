@@ -4,20 +4,16 @@ interface Props {
 }
 
 const { title } = Astro.props;
+import SEO from "../components/shared/SEO.astro";
 ---
 
 <!doctype html>
 <html lang="es">
 	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="description"
-			content="Academia Tecnológica de Toluca & CODE.SG"
+		<SEO
+			title={title}
+			description="Academia Tecnológica de Toluca & CODE.SG - Formación rigurosa en ingeniería y creatividad maker."
 		/>
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/png" href="/favicon.png" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
 	</head>
 	<body>
 		<slot />

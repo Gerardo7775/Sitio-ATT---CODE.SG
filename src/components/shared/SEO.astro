@@ -1,0 +1,50 @@
+---
+// src/components/shared/SEO.astro
+export interface Props {
+    title: string;
+    description: string;
+    image?: string; // Opcional
+    article?: boolean; // ¿Es un artículo o una página general?
+}
+
+const {
+    title,
+    description,
+    image = "/favicon.png", // Imagen por defecto (usando el favicon/logo si no hay otra)
+    article = false,
+} = Astro.props;
+
+// Construimos la URL completa porque las redes sociales exigen rutas absolutas (https://...)
+const siteUrl = Astro.site ? Astro.site.href : "http://localhost:4321/";
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const socialImageURL = new URL(image, siteUrl);
+const fullTitle = `${title} | ATT & CODE.SG`;
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" type="image/png" href="/favicon.png" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Primary Meta Tags -->
+<title>{fullTitle}</title>
+<meta name="title" content={fullTitle} />
+<meta name="description" content={description} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={article ? "article" : "website"} />
+<meta property="og:url" content={canonicalURL} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={socialImageURL} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={canonicalURL} />
+<meta property="twitter:title" content={fullTitle} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={socialImageURL} />
