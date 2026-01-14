@@ -1,0 +1,45 @@
+---
+// src/components/shared/Navbar.astro
+---
+
+<nav
+    class="fixed top-0 w-full z-50 transition-all duration-300 bg-brand-cream/90 backdrop-blur-sm border-b border-att-black/10"
+>
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a
+            href="/"
+            class="font-sans font-black text-xl tracking-tighter text-att-black"
+        >
+            ATT <span class="text-brand-red">/</span> CODE.SG
+        </a>
+
+        <div
+            class="hidden md:flex gap-8 text-sm font-bold uppercase tracking-wide"
+        >
+            <a href="#hero" class="hover:text-brand-red transition-colors"
+                >Inicio</a
+            >
+            <a href="#nosotros" class="hover:text-brand-red transition-colors"
+                >Nosotros</a
+            >
+            <a href="#filosofia" class="hover:text-brand-red transition-colors"
+                >Misión</a
+            >
+
+            <div class="border-l border-gray-300 pl-8 flex gap-4">
+                <a
+                    href="/att"
+                    class="text-att-black hover:underline decoration-2 underline-offset-4"
+                    >Academia</a
+                >
+                <a
+                    href="/codesg"
+                    class="text-code-green font-display hover:scale-110 transition-transform"
+                    >Maker Space</a
+                >
+            </div>
+        </div>
+
+        <button class="md:hidden text-2xl">☰</button>
+    </div>
+</nav>

@@ -1,0 +1,25 @@
+---
+// src/pages/codesg/[...slug].astro
+import { getCollection, type CollectionEntry } from "astro:content";
+import CodePostLayout from "../../layouts/CodePostLayout.astro"; // <--- Importamos el layout Maker
+
+export async function getStaticPaths() {
+    // Leemos la colección 'maker' (definida en config.ts)
+    const makerEntries = await getCollection("maker");
+    return makerEntries.map((entry: CollectionEntry<"maker">) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
+}
+
+interface Props {
+    entry: CollectionEntry<"maker">;
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<CodePostLayout frontmatter={entry.data}>
+    <Content />
+</CodePostLayout>
