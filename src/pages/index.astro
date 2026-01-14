@@ -5,6 +5,8 @@ import { Image } from "astro:assets";
 import attLogo from "../assets/images/att/logo.png";
 import codeLogo from "../assets/images/codesg/logo.jpeg";
 
+import SEO from "../components/shared/SEO.astro";
+
 // Datos de la sección corporativa
 const values = [
     {
@@ -27,10 +29,10 @@ const values = [
 
 <html lang="es" class="scroll-smooth">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <title>ATT | CODE.SG - Ingeniería Real</title>
+        <SEO
+            title="Ingeniería Real"
+            description="Academia Tecnológica de Toluca y CODE.SG. Formación rigurosa y creatividad maker en un solo lugar."
+        />
     </head>
     <body class="bg-brand-cream text-att-black font-sans antialiased">
         <Navbar />
