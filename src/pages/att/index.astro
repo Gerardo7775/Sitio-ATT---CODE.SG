@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import attLogo from "../../assets/images/att/logo.png";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const posts = await getCollection("cursos");
 // Ordenar por fecha, el más reciente primero
@@ -11,14 +12,11 @@ posts.sort(
 );
 ---
 
-<html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <title>Catálogo Académico | ATT</title>
-    </head>
-    <body class="bg-brand-cream text-att-black font-sans p-8">
+<BaseLayout
+    title="Catálogo Académico | ATT"
+    description="Explora todos nuestros recursos educativos. Ingeniería rigurosa, explicada con claridad y orden."
+>
+    <div class="p-8">
         <nav class="mb-12">
             <a href="/" class="font-bold hover:text-brand-red"
                 >← VOLVER AL HUB</a
@@ -186,5 +184,5 @@ posts.sort(
                 </p>
             </div>
         </footer>
-    </body>
-</html>
+    </div>
+</BaseLayout>

@@ -7,8 +7,12 @@ import SEO from "../components/shared/SEO.astro";
 // Simulamos datos (Frontmatter)
 const { frontmatter } = Astro.props;
 
+// Extracción de datos con seguridad
+const title = frontmatter?.title || "Proyecto CODE.SG";
+const description = frontmatter?.description || "Proyecto Maker de CODE.SG.";
+const image = frontmatter?.image;
+
 // Valores por defecto para evitar errores
-const title = frontmatter?.title || "Proyecto Sin Título";
 const status = frontmatter?.status || "En Progreso"; // Estados: Terminado, Beta, Idea
 const tags = frontmatter?.tags || ["Maker", "DIY"];
 const pubDate = frontmatter?.pubDate
@@ -20,9 +24,8 @@ const pubDate = frontmatter?.pubDate
     <head>
         <SEO
             title={title}
-            description={frontmatter?.description ||
-                "Proyecto Maker de CODE.SG"}
-            image={frontmatter?.image}
+            description={description}
+            image={image}
             article={true}
         />
     </head>

@@ -8,8 +8,12 @@ import SEO from "../components/shared/SEO.astro";
 // Simulamos datos que vendrían del Markdown (Frontmatter)
 const { frontmatter } = Astro.props;
 
-// Ejemplo de datos por si usas este archivo directo para probar
-const title = frontmatter?.title || "Introducción a los Punteros en C++";
+// Extracción de datos con seguridad
+const title = frontmatter?.title || "Artículo ATT";
+const description =
+    frontmatter?.description || "Recurso educativo de la Academia Tecnológica.";
+const image = frontmatter?.image;
+
 const category = frontmatter?.category || "Fundamentos de Programación";
 const author = "Ing. PauMag";
 const date = "12 OCT 2025";
@@ -19,9 +23,8 @@ const date = "12 OCT 2025";
     <head>
         <SEO
             title={title}
-            description={frontmatter?.description ||
-                "Artículo académico de ATT."}
-            image={frontmatter?.image}
+            description={description}
+            image={image}
             article={true}
         />
     </head>

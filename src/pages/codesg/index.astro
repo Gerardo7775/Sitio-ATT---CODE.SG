@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import { Image } from "astro:assets";
 import codeLogo from "../../assets/images/codesg/logo.jpeg";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const projects = await getCollection("maker");
 projects.sort(
@@ -10,15 +11,13 @@ projects.sort(
 );
 ---
 
-<html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        <title>Proyectos | CODE.SG</title>
-    </head>
-    <body
-        class="bg-brand-cream font-sans p-8 bg-[radial-gradient(#264653_1px,transparent_1px)] [background-size:20px_20px]"
+<BaseLayout
+    title="Proyectos Maker | CODE.SG"
+    description="Zona de Caos Creativo. Proyectos de Arduino, Impresión 3D y Robótica. Romper para aprender."
+>
+    <!-- Wrapper para mantener el fondo específico de CODE.SG -->
+    <div
+        class="min-h-screen p-8 bg-[radial-gradient(#264653_1px,transparent_1px)] [background-size:20px_20px]"
     >
         <nav class="mb-12">
             <a
@@ -240,5 +239,5 @@ projects.sort(
                 </p>
             </div>
         </footer>
-    </body>
-</html>
+    </div>
+</BaseLayout>
