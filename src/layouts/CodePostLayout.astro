@@ -18,6 +18,9 @@ const tags = frontmatter?.tags || ["Maker", "DIY"];
 const pubDate = frontmatter?.pubDate
     ? new Date(frontmatter.pubDate).toLocaleDateString()
     : "Hoy";
+
+// Aseguramos que resources sea un array (por si es undefined)
+const resources = frontmatter.resources || [];
 ---
 
 <html lang="es">
@@ -141,23 +144,47 @@ const pubDate = frontmatter?.pubDate
                         </ul>
                     </div>
 
-                    <div
-                        class="bg-white border-2 border-black p-6 shadow-retro"
-                    >
-                        <h3 class="font-display text-xl mb-4">💾 Recursos</h3>
-                        <div class="space-y-3">
-                            <button
-                                class="w-full py-3 bg-code-dark text-white font-display border-2 border-black hover:bg-code-green hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all flex justify-center items-center gap-2"
-                            >
-                                <span>STL FILES</span> ⬇
-                            </button>
-                            <button
-                                class="w-full py-3 bg-white text-black font-display border-2 border-black hover:bg-gray-100 transition-all"
-                            >
-                                GITHUB REPO 😺
-                            </button>
-                        </div>
-                    </div>
+                    {
+                        resources.length > 0 && (
+                            <div class="bg-white border-2 border-black p-6 shadow-retro">
+                                <h3 class="font-display text-xl mb-4 flex items-center gap-2">
+                                    💾 Descargas
+                                </h3>
+                                <div class="space-y-3">
+                                    {resources.map((res: any) => (
+                                        <a
+                                            href={res.url}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            class={`
+                                            group flex items-center justify-center gap-3 w-full py-3 border-2 border-black font-display text-sm transition-all
+                                            ${res.type === "github" ? "bg-[#24292e] text-white hover:bg-black" : ""}
+                                            ${res.type === "download" ? "bg-code-green text-white hover:bg-code-dark" : ""}
+                                            ${res.type === "video" ? "bg-brand-red text-white hover:bg-red-700" : ""}
+                                            ${res.type === "doc" ? "bg-white text-black hover:bg-gray-100" : ""}
+                                            hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1
+                                        `}
+                                        >
+                                            {res.type === "github" && (
+                                                <span>😺</span>
+                                            )}
+                                            {res.type === "download" && (
+                                                <span>⬇️</span>
+                                            )}
+                                            {res.type === "video" && (
+                                                <span>📺</span>
+                                            )}
+                                            {res.type === "doc" && (
+                                                <span>📄</span>
+                                            )}
+
+                                            <span>{res.label}</span>
+                                        </a>
+                                    ))}
+                                </div>
+                            </div>
+                        )
+                    }
                 </aside>
             </div>
         </main>
