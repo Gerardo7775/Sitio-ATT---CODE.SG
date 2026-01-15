@@ -3,10 +3,16 @@ import { config, fields, collection, component } from '@keystatic/core';
 import React from 'react';
 
 export default config({
-    storage: {
-        kind: 'github',
-        repo: 'Gerardo775/Sitio-ATT---CODE.SG',
-    },
+    storage: import.meta.env.PROD
+        ? {
+            // EN PRODUCCIÓN (Vercel): Usamos GitHub
+            kind: 'github',
+            repo: 'Gerardo7775/Sitio-ATT---CODE.SG', // <--- ¡Verifica que esto esté bien!
+        }
+        : {
+            // EN LOCAL (Tu PC): Usamos modo Local
+            kind: 'local',
+        },
     collections: {
         // --- SECCIÓN: ACADEMIA (ATT) ---
         cursos: collection({
