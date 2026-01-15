@@ -19,7 +19,7 @@ export default defineConfig({
         tailwind(),
         // 👇 2. Inicializar integraciones (mdx must be before keystatic usually, or as needed)
         react(),
-        keystatic(),
+        // keystatic(),
         mdx(),
         markdoc(),
     ],
