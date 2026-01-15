@@ -5,6 +5,7 @@ import mdx from "@astrojs/mdx";
 import markdoc from "@astrojs/markdoc";
 import react from "@astrojs/react";
 import keystatic from '@keystatic/astro';
+import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,4 +20,5 @@ export default defineConfig({
         keystatic(),
     ],
     output: 'static',
+    adapter: vercel(),
 });
