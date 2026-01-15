@@ -18,4 +18,9 @@ export default defineConfig({
         mdx(),
         markdoc(),
     ],
+    vite: {
+        resolve: {
+            dedupe: ['react', 'react-dom', 'yjs']
+        }
+    }
 });
