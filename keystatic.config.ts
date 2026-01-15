@@ -4,7 +4,11 @@ import React from 'react';
 
 export default config({
     storage: {
-        kind: 'local',
+        kind: 'github',
+        repo: {
+            owner: 'Gerardo775',
+            name: 'Sitio-ATT---CODE.SG',
+        },
     },
     collections: {
         // --- SECCIÓN: ACADEMIA (ATT) ---
