@@ -24,6 +24,15 @@ const makerCollection = defineCollection({
         pubDate: z.date(),
         status: z.enum(['En Progreso', 'Terminado', 'Prototipo']), // Solo permite estos 3 estados
         tags: z.array(z.string()), // Lista de etiquetas (ej. ["Arduino", "3D"])
+
+        // 👇 AGREGAMOS LA VALIDACIÓN PARA RECURSOS (Opcional por si algún post no tiene)
+        resources: z.array(
+            z.object({
+                label: z.string(),
+                url: z.string(),
+                type: z.enum(['github', 'download', 'video', 'doc']),
+            })
+        ).optional(), // <--- Importante: .optional() para no romper posts viejos
     }),
 });
 
