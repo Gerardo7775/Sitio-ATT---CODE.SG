@@ -3,6 +3,7 @@
 import { Image } from "astro:assets";
 import codeLogo from "../assets/images/codesg/logo.jpeg";
 import SEO from "../components/shared/SEO.astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
 
 // Simulamos datos (Frontmatter)
 const { frontmatter } = Astro.props;
@@ -194,5 +195,6 @@ const resources = frontmatter.resources || [];
         >
             // CODE.SG_SYSTEMS // BUILD_VER_2.0 // EOF
         </footer>
+        <SpeedInsights />
     </body>
 </html>

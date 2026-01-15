@@ -4,6 +4,7 @@ import BaseLayout from "./BaseLayout.astro"; // Tu layout base HTML
 import { Image } from "astro:assets";
 import attLogo from "../assets/images/att/logo.png";
 import SEO from "../components/shared/SEO.astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
 
 // Simulamos datos que vendrían del Markdown (Frontmatter)
 const { frontmatter } = Astro.props;
@@ -191,5 +192,6 @@ ip = &var;      // Asigna la dirección de var a ip</code></pre>
         >
             <p>&copy; 2024 Academia Tecnológica de Toluca.</p>
         </footer>
+        <SpeedInsights />
     </body>
 </html>
