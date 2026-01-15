@@ -1,5 +1,6 @@
 ---
 import SEO from "../components/shared/SEO.astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
 
 const {
 	title = "Ingeniería Real",
@@ -15,5 +16,6 @@ const {
 	</head>
 	<body class="bg-brand-cream text-att-black min-h-screen">
 		<slot />
+		<SpeedInsights />
 	</body>
 </html>
