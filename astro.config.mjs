@@ -11,9 +11,10 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
     // 👇 AGREGA ESTA LÍNEA CON TU URL DE VERCEL EXACTA (sin barra al final)
     site: 'https://sitio-att-code-sg.vercel.app',
-    output: 'server',
+    output: 'static',
     adapter: vercel({
         webAnalytics: { enabled: true },
+        includeFiles: ['dist/server/**/*'],
     }),
     integrations: [
         tailwind(),
