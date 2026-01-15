@@ -10,7 +10,6 @@ import vercel from '@astrojs/vercel';
 // https://astro.build/config
 export default defineConfig({
     // 👇 AGREGA ESTA LÍNEA CON TU URL DE VERCEL EXACTA (sin barra al final)
-    // 👇 AGREGA ESTA LÍNEA CON TU URL DE VERCEL EXACTA (sin barra al final)
     site: 'https://sitio-att-code-sg.vercel.app',
     output: 'static',
     adapter: vercel(),
