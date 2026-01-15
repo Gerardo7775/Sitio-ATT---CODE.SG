@@ -10,7 +10,7 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
     prefetch: true,
     site: 'https://sitio-att-code-sg.vercel.app',
-    output: 'static',
+    output: 'server',
     adapter: vercel({
         webAnalytics: {
             enabled: true,
