@@ -14,13 +14,14 @@ export default defineConfig({
     output: 'server',
     adapter: vercel({
         webAnalytics: { enabled: true },
+        functionPerRoute: true,
     }),
     integrations: [
         tailwind(),
         // 👇 2. Inicializar integraciones (mdx must be before keystatic usually, or as needed)
         react(),
-        keystatic(),
         mdx(),
         markdoc(),
+        keystatic(),
     ],
 });
