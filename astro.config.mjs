@@ -11,10 +11,8 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
     // 👇 AGREGA ESTA LÍNEA CON TU URL DE VERCEL EXACTA (sin barra al final)
     site: 'https://sitio-att-code-sg.vercel.app',
-    output: 'static',
-    adapter: vercel({
-        webAnalytics: { enabled: true },
-    }),
+    output: 'server',
+    adapter: vercel(),
     integrations: [
         tailwind(),
         // 👇 2. Inicializar integraciones (mdx must be before keystatic usually, or as needed)
@@ -22,5 +20,6 @@ export default defineConfig({
         keystatic(),
         mdx(),
         markdoc(),
+        keystatic(),
     ],
 });
