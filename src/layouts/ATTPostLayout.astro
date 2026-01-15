@@ -7,7 +7,7 @@ import SEO from "../components/shared/SEO.astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
 
 // Simulamos datos que vendrían del Markdown (Frontmatter)
-const { frontmatter } = Astro.props;
+const { frontmatter, headings = [] } = Astro.props;
 
 // Extracción de datos con seguridad
 const title = frontmatter?.title || "Artículo ATT";
@@ -17,7 +17,12 @@ const image = frontmatter?.image;
 
 const category = frontmatter?.category || "Fundamentos de Programación";
 const author = "Ing. PauMag";
-const date = "12 OCT 2025";
+const date = frontmatter?.pubDate
+    ? new Date(frontmatter.pubDate).toLocaleDateString()
+    : "12 OCT 2025";
+
+// Aseguramos que resources sea un array
+const resources = frontmatter?.resources || [];
 ---
 
 <html lang="es">
@@ -106,84 +111,53 @@ const date = "12 OCT 2025";
                 prose-img:rounded-sm prose-img:border prose-img:border-att-black"
                 >
                     <slot />
-
-                    <p class="lead">
-                        Los punteros son una de las herramientas más potentes y
-                        a la vez temidas de C++. Entender cómo gestionan la
-                        memoria es crucial para la optimización.
-                    </p>
-
-                    <h3>¿Qué es una dirección de memoria?</h3>
-                    <p>
-                        Imagina la memoria RAM como una serie de casilleros
-                        numerados...
-                    </p>
-
-                    <pre><code class="language-cpp">// Ejemplo de Puntero Básico
-int var = 20;   // Declaración de variable
-int *ip;        // Declaración de puntero
-
-ip = &var;      // Asigna la dirección de var a ip</code></pre>
-
-                    <blockquote>
-                        "El gran poder conlleva una gran responsabilidad (de
-                        gestión de memoria)."
-                    </blockquote>
                 </div>
             </article>
 
             <aside class="w-full md:w-64 lg:w-80 space-y-8 hidden md:block">
-                <div
-                    class="sticky top-24 p-6 bg-white border border-gray-200 shadow-tech"
-                >
-                    <h3
-                        class="font-bold text-sm uppercase tracking-widest mb-4 text-att-black border-b border-brand-red pb-2"
-                    >
-                        En este artículo
-                    </h3>
-                    <ul class="space-y-3 text-sm text-att-gray">
-                        <li>
-                            <a
-                                href="#"
-                                class="hover:text-brand-red hover:translate-x-1 transition-transform block"
-                                >1. Definición de Punteros</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                class="hover:text-brand-red hover:translate-x-1 transition-transform block"
-                                >2. Operadores & y *</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                class="hover:text-brand-red hover:translate-x-1 transition-transform block font-bold text-brand-red"
-                                >3. Gestión de Memoria</a
-                            >
-                        </li>
-                        <li>
-                            <a
-                                href="#"
-                                class="hover:text-brand-red hover:translate-x-1 transition-transform block"
-                                >4. Ejercicios Prácticos</a
-                            >
-                        </li>
-                    </ul>
-                </div>
+                {
+                    headings.length > 0 && (
+                        <div class="sticky top-24 p-6 bg-white border border-gray-200 shadow-tech">
+                            <h3 class="font-bold text-sm uppercase tracking-widest mb-4 text-att-black border-b border-brand-red pb-2">
+                                En este artículo
+                            </h3>
+                            <ul class="space-y-3 text-sm text-att-gray">
+                                {headings.map((heading: any) => (
+                                    <li>
+                                        <a
+                                            href={`#${heading.slug}`}
+                                            class={`hover:text-brand-red hover:translate-x-1 transition-transform block ${heading.depth > 2 ? "pl-4" : ""}`}
+                                        >
+                                            {heading.text}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )
+                }
 
-                <div class="p-6 bg-att-black text-white">
-                    <h3 class="font-bold text-lg mb-2">Recursos ATT</h3>
-                    <p class="text-sm text-gray-400 mb-4">
-                        Descarga el código fuente y diagramas de esta lección.
-                    </p>
-                    <button
-                        class="w-full py-2 bg-brand-red text-white font-bold uppercase text-xs hover:bg-white hover:text-brand-red transition-colors"
-                    >
-                        Descargar .ZIP
-                    </button>
-                </div>
+                {
+                    resources.length > 0 && (
+                        <div class="p-6 bg-att-black text-white">
+                            <h3 class="font-bold text-lg mb-2">Recursos ATT</h3>
+                            <p class="text-sm text-gray-400 mb-4">
+                                Material complementario de esta lección.
+                            </p>
+                            <div class="space-y-2">
+                                {resources.map((res: any) => (
+                                    <a
+                                        href={res.url}
+                                        target="_blank"
+                                        class="block w-full py-2 bg-brand-red text-center text-white font-bold uppercase text-xs hover:bg-white hover:text-brand-red transition-colors"
+                                    >
+                                        {res.label || "Descargar"}
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    )
+                }
             </aside>
         </main>
 

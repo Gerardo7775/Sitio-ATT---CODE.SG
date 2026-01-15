@@ -1,10 +1,12 @@
 ---
 // src/pages/codesg/[...slug].astro
 import { getCollection, type CollectionEntry } from "astro:content";
-import CodePostLayout from "../../layouts/CodePostLayout.astro"; // <--- Importamos el layout Maker
+import CodePostLayout from "../../layouts/CodePostLayout.astro";
+
+// 1. Force static generation for blog posts (fix warning)
+export const prerender = true;
 
 export async function getStaticPaths() {
-    // Leemos la colección 'maker' (definida en config.ts)
     const makerEntries = await getCollection("maker");
     return makerEntries.map((entry: CollectionEntry<"maker">) => ({
         params: { slug: entry.slug },

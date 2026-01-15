@@ -142,6 +142,15 @@ export default config({
                     }
                 ),
 
+                // Lista de Materiales (Nuevo)
+                materials: fields.array(
+                    fields.text({ label: 'Material' }),
+                    {
+                        label: 'Lista de Materiales',
+                        itemLabel: (props) => props.value,
+                    }
+                ),
+
                 resources: fields.array(
                     fields.object({
                         label: fields.text({ label: 'Texto del Botón (Ej. Ver en GitHub)' }),

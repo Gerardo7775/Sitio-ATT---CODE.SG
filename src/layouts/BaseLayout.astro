@@ -1,6 +1,9 @@
 ---
 import SEO from "../components/shared/SEO.astro";
 import SpeedInsights from "@vercel/speed-insights/astro";
+// Local Fonts
+import "@fontsource/inter";
+import "@fontsource/changa-one";
 
 const {
 	title = "Ingeniería Real",
@@ -14,7 +17,9 @@ const {
 	<head>
 		<SEO title={title} description={description} image={image} />
 	</head>
-	<body class="bg-brand-cream text-att-black min-h-screen">
+	<body
+		class="bg-brand-cream text-att-black min-h-screen font-sans antialiased"
+	>
 		<slot />
 		<SpeedInsights />
 	</body>

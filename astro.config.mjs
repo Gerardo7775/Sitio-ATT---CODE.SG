@@ -8,8 +8,9 @@ import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
 export default defineConfig({
+    prefetch: true,
     site: 'https://sitio-att-code-sg.vercel.app',
-    output: 'server',
+    output: 'static',
     adapter: vercel({
         webAnalytics: {
             enabled: true,

@@ -3,6 +3,9 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import ATTPostLayout from "../../layouts/ATTPostLayout.astro";
 
+// 1. Force static generation for blog posts (fix warning)
+export const prerender = true;
+
 // 1. Esta función le dice a Astro qué páginas existen
 export async function getStaticPaths() {
     const blogEntries = await getCollection("cursos");
@@ -18,9 +21,9 @@ interface Props {
 
 // 2. Obtenemos los datos de cada archivo
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content, headings } = await entry.render();
 ---
 
-<ATTPostLayout frontmatter={entry.data}>
+<ATTPostLayout frontmatter={entry.data} headings={headings}>
     <Content />
 </ATTPostLayout>

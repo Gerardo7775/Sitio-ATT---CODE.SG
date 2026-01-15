@@ -22,6 +22,7 @@ const pubDate = frontmatter?.pubDate
 
 // Aseguramos que resources sea un array (por si es undefined)
 const resources = frontmatter.resources || [];
+const materials = frontmatter.materials || [];
 ---
 
 <html lang="es">
@@ -127,23 +128,20 @@ const resources = frontmatter.resources || [];
                 </article>
 
                 <aside class="md:col-span-4 space-y-6">
-                    <div
-                        class="bg-[#FFF9C4] border-2 border-black p-6 shadow-retro transform -rotate-1"
-                    >
-                        <h3
-                            class="font-display text-xl mb-4 border-b-2 border-black pb-1"
-                        >
-                            📦 Materiales
-                        </h3>
-                        <ul
-                            class="list-disc list-inside space-y-2 font-mono text-sm"
-                        >
-                            <li>Arduino Nano / ESP32</li>
-                            <li>Filamento PLA+</li>
-                            <li>Tornillos M3 x 10mm</li>
-                            <li>Café (Mucho café)</li>
-                        </ul>
-                    </div>
+                    {
+                        materials.length > 0 && (
+                            <div class="bg-[#FFF9C4] border-2 border-black p-6 shadow-retro transform -rotate-1">
+                                <h3 class="font-display text-xl mb-4 border-b-2 border-black pb-1">
+                                    📦 Materiales
+                                </h3>
+                                <ul class="list-disc list-inside space-y-2 font-mono text-sm">
+                                    {materials.map((item: string) => (
+                                        <li>{item}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )
+                    }
 
                     {
                         resources.length > 0 && (
