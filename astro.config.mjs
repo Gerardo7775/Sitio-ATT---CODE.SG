@@ -24,9 +24,7 @@ export default defineConfig({
         ...(isDev ? [keystatic()] : []), // Keystatic SOLO en modo desarrollo (local)
         mdx(),
     ],
-    build: {
-        format: 'file'
-    },
+
     vite: {
         resolve: {
             dedupe: ['react', 'react-dom', 'yjs']
