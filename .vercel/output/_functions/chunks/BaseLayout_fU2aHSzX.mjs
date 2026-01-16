@@ -1,6 +1,6 @@
-import { d as createAstro, c as createComponent, r as renderComponent, e as renderHead, f as renderSlot, a as renderTemplate } from './astro/server_DTypCvEY.mjs';
+import { d as createAstro, c as createComponent, r as renderComponent, e as renderHead, f as renderSlot, a as renderTemplate } from './astro/server_WUUEiQnw.mjs';
 import 'piccolore';
-import { $ as $$SEO, a as $$Index } from './index_Dbega1Va.mjs';
+import { $ as $$SEO, a as $$Index } from './index_C9-IC1Dp.mjs';
 /* empty css                         */
 
 const $$Astro = createAstro("https://sitio-att-code-sg.vercel.app");

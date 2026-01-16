@@ -1,4 +1,4 @@
-import { c as createGetHeadings, a as createContentComponent, m as markdocConfig, b as assetsConfig, $ as $$Renderer } from './runtime-assets-config_pyL-3ZCO.mjs';
+import { c as createGetHeadings, a as createContentComponent, m as markdocConfig, b as assetsConfig, $ as $$Renderer } from './runtime-assets-config_CSvtyAq3.mjs';
 
 markdocConfig.nodes = { ...assetsConfig.nodes, ...markdocConfig.nodes };
 

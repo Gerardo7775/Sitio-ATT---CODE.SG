@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./hola-mundo att_Dx0J35NB.mjs');
+						return import('./gauss-jordan_iFgI9AEe.mjs');
 					}
 					const collectedLinks = [];
 					const collectedStyles = [];

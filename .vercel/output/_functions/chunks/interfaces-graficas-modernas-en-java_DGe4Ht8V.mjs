@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./robot-sumo_DaVm7QNh.mjs');
+						return import('./interfaces-graficas-modernas-en-java_DnP4VoHf.mjs');
 					}
 					const collectedLinks = [];
 					const collectedStyles = [];

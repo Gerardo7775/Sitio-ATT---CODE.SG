@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./operaciones-matrices_Dx0J35NB.mjs');
+						return import('./hola-mundo att_D0eVh-Ax.mjs');
 					}
 					const collectedLinks = [];
 					const collectedStyles = [];

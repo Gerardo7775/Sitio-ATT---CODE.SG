@@ -1,10 +1,10 @@
 /* empty css                                                */
-import { c as createComponent, m as maybeRenderHead, r as renderComponent, j as renderScript, a as renderTemplate, d as createAstro } from '../chunks/astro/server_DTypCvEY.mjs';
+import { c as createComponent, m as maybeRenderHead, r as renderComponent, j as renderScript, a as renderTemplate, d as createAstro } from '../chunks/astro/server_WUUEiQnw.mjs';
 import 'piccolore';
-import { $ as $$Image } from '../chunks/_astro_assets_Cp6_kJuj.mjs';
+import { $ as $$Image } from '../chunks/_astro_assets_Du0MALOb.mjs';
 import { a as attLogo } from '../chunks/logo_WkAp00Bn.mjs';
 import { c as codeLogo } from '../chunks/logo_sau3nNta.mjs';
-import { $ as $$BaseLayout } from '../chunks/BaseLayout_DsFmhsKl.mjs';
+import { $ as $$BaseLayout } from '../chunks/BaseLayout_fU2aHSzX.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Navbar = createComponent(($$result, $$props, $$slots) => {

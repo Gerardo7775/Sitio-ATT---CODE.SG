@@ -1,10 +1,10 @@
 /* empty css                                                */
-import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead, b as addAttribute } from '../chunks/astro/server_DTypCvEY.mjs';
+import { c as createComponent, r as renderComponent, a as renderTemplate, m as maybeRenderHead, b as addAttribute } from '../chunks/astro/server_WUUEiQnw.mjs';
 import 'piccolore';
-import { g as getCollection } from '../chunks/_astro_content_CQlF6kUT.mjs';
-import { $ as $$Image } from '../chunks/_astro_assets_Cp6_kJuj.mjs';
+import { g as getCollection } from '../chunks/_astro_content_BbTG80wO.mjs';
+import { $ as $$Image } from '../chunks/_astro_assets_Du0MALOb.mjs';
 import { a as attLogo } from '../chunks/logo_WkAp00Bn.mjs';
-import { $ as $$BaseLayout } from '../chunks/BaseLayout_DsFmhsKl.mjs';
+import { $ as $$BaseLayout } from '../chunks/BaseLayout_fU2aHSzX.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {

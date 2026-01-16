@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./interfaces-graficas-modernas-en-java_CyVOOfOF.mjs');
+						return import('./operaciones-matrices_D0eVh-Ax.mjs');
 					}
 					const collectedLinks = [];
 					const collectedStyles = [];

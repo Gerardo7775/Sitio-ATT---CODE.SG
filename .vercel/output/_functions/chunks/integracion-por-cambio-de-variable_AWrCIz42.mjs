@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./gauss-jordan_DS_v6CpL.mjs');
+						return import('./integracion-por-cambio-de-variable_DChZ5xde.mjs');
 					}
 					const collectedLinks = [];
 					const collectedStyles = [];

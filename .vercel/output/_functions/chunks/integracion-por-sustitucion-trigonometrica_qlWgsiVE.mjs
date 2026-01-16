@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./integracion-por-cambio-de-variable_DW-IBxFH.mjs');
+						return import('./integracion-por-sustitucion-trigonometrica_RiIfGGOQ.mjs');
 					}
 					const collectedLinks = [];
 					const collectedStyles = [];

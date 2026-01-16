@@ -1,5 +1,5 @@
 async function getMod() {
-						return import('./integracion-por-sustitucion-trigonometrica_gnVEzuPg.mjs');
+						return import('./robot-sumo_DlD0mmkz.mjs');
 					}
 					const collectedLinks = [];
 					const collectedStyles = [];
