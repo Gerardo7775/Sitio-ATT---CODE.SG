@@ -4,18 +4,12 @@ import mdx from "@astrojs/mdx";
 import markdoc from "@astrojs/markdoc";
 import react from "@astrojs/react";
 import keystatic from '@keystatic/astro';
-import vercel from '@astrojs/vercel/serverless';
 
 // https://astro.build/config
 export default defineConfig({
     prefetch: true,
     site: 'https://sitio-att-code-sg.vercel.app',
-    output: 'server',
-    adapter: vercel({
-        webAnalytics: { enabled: true },
-        // Esto ayuda a que las imágenes funcionen mejor en Vercel
-        imageService: true,
-    }),
+    output: 'static',
     integrations: [
         tailwind(),
         react(),
@@ -24,7 +18,7 @@ export default defineConfig({
         mdx(),
     ],
     build: {
-        inlineStylesheets: 'auto',
+        format: 'file'
     },
     vite: {
         resolve: {
