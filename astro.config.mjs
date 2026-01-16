@@ -7,6 +7,8 @@ import keystatic from '@keystatic/astro';
 // import vercel from '@astrojs/vercel';
 
 // https://astro.build/config
+const isDev = process.argv.includes('dev');
+
 export default defineConfig({
     prefetch: true,
     site: 'https://sitio-att-code-sg.vercel.app',
@@ -19,7 +21,7 @@ export default defineConfig({
         tailwind(),
         react(),
         markdoc(),   // Markdoc antes de MDX para evitar conflictos de rutas
-        keystatic(), // Keystatic antes de ML/MD para evitar conflictos de rutas
+        ...(isDev ? [keystatic()] : []), // Keystatic SOLO en modo desarrollo (local)
         mdx(),
     ],
     build: {
