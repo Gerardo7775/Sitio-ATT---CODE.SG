@@ -89,11 +89,12 @@ function tryOrUndefined(fn) {
 
 const config = config$1({
   storage: {
-    // EN PRODUCCIÓN (Vercel): Usamos GitHub
     kind: "github",
-    repo: "Gerardo7775/Sitio-ATT---CODE.SG"
-    // <--- ¡Verifica que esto esté bien!
-  } ,
+    repo: {
+      owner: "Gerardo7775",
+      name: "Sitio-ATT---CODE.SG"
+    }
+  },
   collections: {
     // --- SECCIÓN: ACADEMIA (ATT) ---
     cursos: collection({
@@ -221,6 +222,14 @@ const config = config$1({
           {
             label: "Galería del Proyecto",
             itemLabel: (props) => "Imagen: " + props.value
+          }
+        ),
+        // Lista de Materiales (Nuevo)
+        materials: fields.array(
+          fields.text({ label: "Material" }),
+          {
+            label: "Lista de Materiales",
+            itemLabel: (props) => props.value
           }
         ),
         resources: fields.array(
