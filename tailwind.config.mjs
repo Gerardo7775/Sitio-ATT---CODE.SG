@@ -1,3 +1,5 @@
+import typography from '@tailwindcss/typography';
+
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
@@ -9,7 +11,7 @@ export default {
 					cream: '#F5F2EB', // El fondo "Off-white" cálido para ambas marcas
 					red: '#E63946',   // El "Hilo Rojo" (Circuitos ATT / Sombrero CodeSG)
 				},
-				
+
 				// --- ATT (La Academia) ---
 				att: {
 					black: '#1A1A1A', // Negro autoridad (no #000 puro, mejor para lectura)
@@ -25,7 +27,7 @@ export default {
 			fontFamily: {
 				// Tipografía ATT: Sans-serif, recta, técnica (Ej. Inter o Roboto)
 				sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-				
+
 				// Tipografía CODE.SG: Chunky, display, retro (Ej. Changa One o Fredoka)
 				display: ['"Changa One"', '"Fredoka"', 'cursive'],
 			},
@@ -38,6 +40,6 @@ export default {
 		},
 	},
 	plugins: [
-		require('@tailwindcss/typography'), // Indispensable para que tus tutoriales MDX se vean bien
+		typography, // Indispensable para que tus tutoriales MDX se vean bien
 	],
 }
